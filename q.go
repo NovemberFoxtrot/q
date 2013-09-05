@@ -9,7 +9,7 @@ func producer(c chan rune, max int) {
 	for i := 0; i < max; i++ {
 		select {
 		case c <- ' ':
-		case c <- '#':
+		case c <- '%':
 		}
 	}
 }
@@ -26,6 +26,6 @@ func consumer(c chan rune) {
 
 func main() {
 	c := make(chan rune)
-	go producer(c, 10000)
+	go producer(c, 1000)
 	consumer(c)
 }
